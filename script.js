@@ -9,7 +9,7 @@ const data = {
 
 function validate() {
     if (!name.value || !age.value) {
-        alert("inputs can't be empty.")
+        alert("Please enter valid details")
         return false;
     }
     return true;
