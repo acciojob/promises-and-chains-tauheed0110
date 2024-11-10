@@ -28,18 +28,23 @@ function setData() {
                 }
             }, 4000);
         })
+    }else{
+        return new Promise((resolve, reject)=>{
+            reject("rejected");
+        })
     }
 
 }
 
 window.onload = () => {
     document.getElementById("myForm").onsubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault();  
         const promise = setData();
         promise.then((data) => {
             alert(`Welcome, ${data.data.name}. You can vote.`)
         }).catch((err) => {
-            alert(`Oh sorry ${err.data.name}. You aren't old enough.`)
+            if(err.data)
+                alert(`Oh sorry ${err.data.name}. You aren't old enough.`)
         })
     }
 }
